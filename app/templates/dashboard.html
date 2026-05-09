@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Smart Tasks{% endblock %}
+{% block content %}
+<section class="grid">
+  <div class="card analytics">
+    <h2>Analytics</h2>
+    <div class="stats" id="stats">
+      <div class="stat"><span class="label">Total</span><strong id="stat-total">0</strong></div>
+      <div class="stat"><span class="label">Completed</span><strong id="stat-completed">0</strong></div>
+      <div class="stat"><span class="label">Pending</span><strong id="stat-pending">0</strong></div>
+      <div class="stat"><span class="label">Completion</span><strong id="stat-pct">0%</strong></div>
+    </div>
+    <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+  </div>
+
+  <div class="card">
+    <h2>New task</h2>
+    <form id="task-form" class="form">
+      <input type="text" id="title" placeholder="Title" required />
+      <textarea id="description" placeholder="Description" rows="2"></textarea>
+      <div class="row">
+        <select id="priority">
+          <option>Low</option><option selected>Medium</option><option>High</option>
+        </select>
+        <select id="status">
+          <option selected>Pending</option><option>In Progress</option><option>Completed</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Add task</button>
+    </form>
+  </div>
+</section>
+
+<section class="card">
+  <div class="row between">
+    <h2>Your tasks</h2>
+    <span id="live-indicator" class="live">● Live</span>
+  </div>
+  <ul id="task-list" class="task-list"></ul>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
