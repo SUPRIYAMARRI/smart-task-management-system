@@ -1,126 +1,240 @@
 # Smart Task Management System
 
-A Flask + PostgreSQL task manager with REST APIs, real-time updates via WebSockets, and analytics powered by Pandas & NumPy.
+A full-stack Task Management System built using Python, Flask, PostgreSQL, REST APIs, Pandas, NumPy, and WebSockets featuring authentication, real-time updates, analytics dashboard, and responsive UI.
+
+---
 
 ## Features
 
-- 🔐 User registration, login & logout (Flask-Login + hashed passwords)
-- ✅ Full CRUD REST API for tasks (Add / Update / Delete / Get all)
-- 🐘 PostgreSQL persistence via SQLAlchemy (Users + Tasks tables)
-- 📊 Analytics endpoint (Total, Completed, Pending, Completion %) using Pandas & NumPy
-- 🔔 Live task updates broadcast over WebSockets (Flask-SocketIO)
-- 🎨 Clean responsive HTML/CSS dashboard
+* 🔐 User Registration, Login & Logout
+* ✅ REST API for Task Management (CRUD Operations)
+* 🐘 PostgreSQL Database Integration
+* 📊 Analytics Dashboard using Pandas & NumPy
+* 🔔 Real-time Task Updates using WebSockets
+* 🎨 Responsive Frontend using HTML & CSS
+
+---
 
 ## Tech Stack
 
-Python 3.10+, Flask 3, Flask-SQLAlchemy, Flask-Login, Flask-SocketIO, PostgreSQL, Pandas, NumPy, eventlet.
+* Python 3.11
+* Flask
+* Flask-SQLAlchemy
+* Flask-Login
+* Flask-SocketIO
+* PostgreSQL
+* Pandas
+* NumPy
+* HTML
+* CSS
+* JavaScript
+
+---
 
 ## Project Structure
 
-```
-smart-tasks/
-├── run.py                  # Entry point (socketio.run)
-├── config.py               # Config (reads .env)
-├── schema.sql              # Raw PostgreSQL schema
+```bash
+smart-task-management-system/
+│
+├── app/
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── tasks.py
+│   │   ├── analytics.py
+│   │   └── main.py
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   └── js/
+│   │
+│   ├── templates/
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   ├── dashboard.html
+│   │   └── base.html
+│   │
+│   ├── models.py
+│   ├── sockets.py
+│   └── __init__.py
+│
+├── config.py
 ├── requirements.txt
-├── .env.example
-└── app/
-    ├── __init__.py         # App factory + extensions
-    ├── models.py           # User, Task models
-    ├── sockets.py          # WebSocket handlers + broadcaster
-    ├── routes/
-    │   ├── auth.py         # /register /login /logout
-    │   ├── main.py         # / and /dashboard
-    │   ├── tasks.py        # /api/tasks  (GET, POST, PUT, DELETE)
-    │   └── analytics.py    # /api/analytics/summary
-    ├── templates/          # Jinja2 templates (base, login, register, dashboard)
-    └── static/             # CSS + JS
+├── run.py
+├── schema.sql
+├── README.md
+└── .env.example
 ```
 
-## Setup
+---
 
-### 1. Clone & install
+## Installation & Setup
+
+### 1. Clone Repository
 
 ```bash
-git clone <your-repo-url>
-cd smart-tasks
+git clone https://github.com/SUPRIYAMARRI/smart-task-management-system.git
+cd smart-task-management-system
+```
+
+---
+
+### 2. Create Virtual Environment
+
+```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
+```
+
+---
+
+### 3. Activate Virtual Environment
+
+#### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+#### Linux / Mac
+
+```bash
+source .venv/bin/activate
+```
+
+---
+
+### 4. Install Required Packages
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 2. PostgreSQL database
+---
 
-Make sure PostgreSQL is running, then:
+### 5. Configure Environment Variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+SECRET_KEY=your_secret_key
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/smart_tasks
+```
+
+---
+
+### 6. Setup PostgreSQL Database
+
+Make sure PostgreSQL is installed and running.
+
+Run the schema file:
 
 ```bash
 psql -U postgres -f schema.sql
 ```
 
-(Or run the SQL inside `schema.sql` manually. The app will also auto-create tables via SQLAlchemy on first run.)
+---
 
-### 3. Environment
-
-```bash
-cp .env.example .env
-# Edit .env: set SECRET_KEY and DATABASE_URL
-```
-
-`DATABASE_URL` format: `postgresql://USER:PASSWORD@HOST:PORT/smart_tasks`
-
-### 4. Run
+### 7. Run the Application
 
 ```bash
 python run.py
 ```
 
-Open http://localhost:5000 — register an account, log in, and start adding tasks. Open the dashboard in two browser tabs to see live WebSocket updates.
+---
 
-## REST API
-
-All `/api/*` endpoints require an authenticated session (cookie from `/login`).
-
-| Method | Endpoint                  | Description           |
-|--------|---------------------------|-----------------------|
-| GET    | `/api/tasks`              | List current user's tasks |
-| POST   | `/api/tasks`              | Create task `{title, description, priority, status}` |
-| PATCH  | `/api/tasks/<id>`         | Update any field |
-| PUT    | `/api/tasks/<id>`         | Update any field |
-| DELETE | `/api/tasks/<id>`         | Delete task |
-| GET    | `/api/analytics/summary`  | Pandas/NumPy analytics summary |
-
-### Example
+### 8. Open in Browser
 
 ```bash
-curl -X POST http://localhost:5000/api/tasks \
-  -H "Content-Type: application/json" \
-  -b cookies.txt \
-  -d '{"title":"Ship MVP","priority":"High","status":"Pending"}'
+http://localhost:5000
 ```
 
-## Analytics output
+---
 
-```json
-{
-  "total": 12,
-  "completed": 5,
-  "pending": 4,
-  "in_progress": 3,
-  "completion_percentage": 41.67,
-  "by_priority": {"High": 4, "Medium": 6, "Low": 2}
-}
+## Application Features
+
+### Authentication
+
+* User Registration
+* User Login
+* Logout Functionality
+* Password Hashing
+
+---
+
+### Task Management APIs
+
+| Method | Endpoint          | Description    |
+| ------ | ----------------- | -------------- |
+| GET    | `/api/tasks`      | Get all tasks  |
+| POST   | `/api/tasks`      | Add new task   |
+| PUT    | `/api/tasks/<id>` | Update task    |
+| PATCH  | `/api/tasks/<id>` | Partial update |
+| DELETE | `/api/tasks/<id>` | Delete task    |
+
+---
+
+## Task Fields
+
+Each task contains:
+
+* Title
+* Description
+* Priority
+* Status
+* Created Date
+
+---
+
+## Analytics Module
+
+Using Pandas & NumPy:
+
+* Total Tasks
+* Completed Tasks
+* Pending Tasks
+* Completion Percentage
+* Tasks by Priority
+
+---
+
+## WebSocket Features
+
+Implemented using Flask-SocketIO:
+
+* Real-time task updates
+* Live notifications
+* Instant dashboard refresh
+
+---
+
+## Database Schema
+
+Database schema is available in:
+
+```bash
+schema.sql
 ```
 
-## WebSocket events
+---
 
-Client connects via Socket.IO. Server broadcasts:
+## Submission Requirements Completed
 
-- `task_created` — payload: full task
-- `task_updated` — payload: full task
-- `task_deleted` — payload: `{ id }`
+✅ GitHub Repository
+✅ PostgreSQL Schema
+✅ REST APIs
+✅ Flask Authentication
+✅ Pandas & NumPy Analytics
+✅ WebSocket Integration
+✅ Responsive Frontend
+✅ README Documentation
 
-The dashboard listens to these and refreshes the list + analytics in real time.
+---
+
+## Author
+
+Supriya Marri
+
+---
 
 ## License
 
-MIT
+MIT License
