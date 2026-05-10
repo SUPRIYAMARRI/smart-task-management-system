@@ -1,32 +1,43 @@
 # Smart Task Management System
 
-A full-stack Task Management System built using Python, Flask, PostgreSQL, REST APIs, Pandas, NumPy, and WebSockets featuring authentication, real-time updates, analytics dashboard, and responsive UI.
+Smart Task Management System is a full-stack web application developed using Python, Flask, and PostgreSQL to help users manage daily tasks efficiently. The project includes authentication, task management APIs, analytics dashboard, and real-time task updates using WebSockets.
 
-## Features
+I built this project to improve my backend development skills and learn how REST APIs, PostgreSQL, and real-time communication work in Flask applications.
 
-*  User Registration, Login & Logout
-*  REST API for Task Management (CRUD Operations)
-*  PostgreSQL Database Integration
-*  Analytics Dashboard using Pandas & NumPy
-*  Real-time Task Updates using WebSockets
-*  Responsive Frontend using HTML & CSS
+---
 
+# Features
 
-## Tech Stack
+- User Registration and Login
+- Secure Authentication System
+- Task Management (CRUD Operations)
+- PostgreSQL Database Integration
+- REST APIs for Task Handling
+- Analytics Dashboard using Pandas and NumPy
+- Real-time Updates using Flask-SocketIO
+- Responsive Frontend using HTML, CSS, and JavaScript
 
-* Python 3.11
-* Flask
-* Flask-SQLAlchemy
-* Flask-Login
-* Flask-SocketIO
-* PostgreSQL
-* Pandas
-* NumPy
-* HTML
-* CSS
-* JavaScript
+---
 
-## Project Structure
+# Tech Stack
+
+- Python 3.11
+- Flask
+- Flask-SQLAlchemy
+- Flask-Login
+- Flask-SocketIO
+- PostgreSQL
+- Pandas
+- NumPy
+- HTML
+- CSS
+- JavaScript
+
+---
+
+# Project Structure
+
+```bash
 smart-task-management-system/
 │
 ├── app/
@@ -56,116 +67,185 @@ smart-task-management-system/
 ├── schema.sql
 ├── README.md
 └── .env.example
-
-## Installation & Setup
-
-### 1. Clone Repository
-
-git clone https://github.com/SUPRIYAMARRI/smart-task-management-system.git
-cd smart-task-management-system
-
-### 2. Create Virtual Environment
-
-python -m venv .venv
-
-### 3. Activate Virtual Environment
-
-#### Windows
-.venv\Scripts\activate
-### 4. Install Required Packages
-pip install -r requirements.txt
-
-### 5. Configure Environment Variables
-
-Create a `.env` file in the root directory and add:
-SECRET_KEY=your_secret_key
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/smart_task
-
-### 6. Setup PostgreSQL Database
-
-Make sure PostgreSQL is installed and running.
-
-Run the schema file:
-
-psql -U postgres -f schema.sql
-
-### 7. Run the Application
-
-python run.py
-
-### 8. Open in Browser
-
-http://localhost:5000
-
-
-## Application Features
-
-### Authentication
-
-* User Registration
-* User Login
-* Logout Functionality
-* Password Hashing
-
-### Task Management APIs
-
-| Method | Endpoint          | Description    |
-| ------ | ----------------- | -------------- |
-| GET    | `/api/tasks`      | Get all tasks  |
-| POST   | `/api/tasks`      | Add new task   |
-| PUT    | `/api/tasks/<id>` | Update task    |
-| PATCH  | `/api/tasks/<id>` | Partial update |
-| DELETE | `/api/tasks/<id>` | Delete task    |
+```
 
 ---
 
-## Task Fields
+# Installation and Setup
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/SUPRIYAMARRI/smart-task-management-system.git
+
+cd smart-task-management-system
+```
+
+## 2. Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+## 3. Activate Virtual Environment
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / Mac
+
+```bash
+source .venv/bin/activate
+```
+
+## 4. Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+## 5. Configure Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
+```env
+SECRET_KEY=your_secret_key
+
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/smart_task
+```
+
+---
+
+# PostgreSQL Database Setup
+
+Make sure PostgreSQL is installed and running on your system.
+
+Run the schema file using:
+
+```bash
+psql -U postgres -f schema.sql
+```
+
+---
+
+# Run the Application
+
+```bash
+python run.py
+```
+
+---
+
+# Open in Browser
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# Authentication Features
+
+- User Registration
+- User Login
+- Logout Functionality
+- Password Hashing for Security
+
+---
+
+# Task Management REST APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/tasks` | Get all tasks |
+| POST | `/api/tasks` | Create new task |
+| PUT | `/api/tasks/<id>` | Update full task |
+| PATCH | `/api/tasks/<id>` | Partial update |
+| DELETE | `/api/tasks/<id>` | Delete task |
+
+---
+
+# Task Fields
 
 Each task contains:
 
-* Title
-* Description
-* Priority
-* Status
-* Created Date
+- Title
+- Description
+- Priority
+- Status
+- Created Date
 
-## Analytics Module
+---
 
-Using Pandas & NumPy:
+# Analytics Dashboard
 
-* Total Tasks
-* Completed Tasks
-* Pending Tasks
-* Completion Percentage
-* Tasks by Priority
+The analytics module is developed using Pandas and NumPy.
 
+It provides:
 
-## WebSocket Features
+- Total Tasks
+- Completed Tasks
+- Pending Tasks
+- Completion Percentage
+- Tasks Based on Priority
+
+---
+
+# WebSocket Features
 
 Implemented using Flask-SocketIO:
 
-* Real-time task updates
-* Live notifications
-* Instant dashboard refresh
+- Real-time Task Updates
+- Live Notifications
+- Instant Dashboard Refresh
 
-## Database Schema
+---
+
+# Database Schema
 
 Database schema is available in:
 
+```bash
 schema.sql
+```
 
-## Submission Requirements Completed
+---
 
-✅ GitHub Repository
-✅ PostgreSQL Schema
-✅ REST APIs
-✅ Flask Authentication
-✅ Pandas & NumPy Analytics
-✅ WebSocket Integration
-✅ Responsive Frontend
-✅ README Documentation
-## Demo video link
+# Demo Video
+
+Demo video link:
+
+```bash
 https://drive.google.com/file/d/13giau_Xve_nSndVe0vuCUyjZlbw8AmVw/view?usp=drive_link
-## License
+```
 
-MIT License
+---
+
+# Project Highlights
+
+- Full-stack Flask Application
+- REST API Development
+- PostgreSQL Integration
+- Authentication System
+- Real-time Communication using WebSockets
+- Analytics using Pandas and NumPy
+- Responsive User Interface
+
+---
+
+# Future Improvements
+
+- Email Notifications
+- Task Reminder System
+- File Upload Support
+- Dark Mode UI
+- Admin Dashboard
+
+---
+
+# License
+
+This project is licensed under the MIT License.
