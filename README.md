@@ -2,18 +2,15 @@
 
 A full-stack Task Management System built using Python, Flask, PostgreSQL, REST APIs, Pandas, NumPy, and WebSockets featuring authentication, real-time updates, analytics dashboard, and responsive UI.
 
----
-
 ## Features
 
-* 🔐 User Registration, Login & Logout
-* ✅ REST API for Task Management (CRUD Operations)
-* 🐘 PostgreSQL Database Integration
-* 📊 Analytics Dashboard using Pandas & NumPy
-* 🔔 Real-time Task Updates using WebSockets
-* 🎨 Responsive Frontend using HTML & CSS
+*  User Registration, Login & Logout
+*  REST API for Task Management (CRUD Operations)
+*  PostgreSQL Database Integration
+*  Analytics Dashboard using Pandas & NumPy
+*  Real-time Task Updates using WebSockets
+*  Responsive Frontend using HTML & CSS
 
----
 
 ## Tech Stack
 
@@ -29,11 +26,7 @@ A full-stack Task Management System built using Python, Flask, PostgreSQL, REST 
 * CSS
 * JavaScript
 
----
-
 ## Project Structure
-
-```bash
 smart-task-management-system/
 │
 ├── app/
@@ -63,63 +56,30 @@ smart-task-management-system/
 ├── schema.sql
 ├── README.md
 └── .env.example
-```
-
----
 
 ## Installation & Setup
 
 ### 1. Clone Repository
 
-```bash
 git clone https://github.com/SUPRIYAMARRI/smart-task-management-system.git
 cd smart-task-management-system
-```
-
----
 
 ### 2. Create Virtual Environment
 
-```bash
 python -m venv .venv
-```
-
----
 
 ### 3. Activate Virtual Environment
 
 #### Windows
-
-```bash
 .venv\Scripts\activate
-```
-
-#### Linux / Mac
-
-```bash
-source .venv/bin/activate
-```
-
----
-
 ### 4. Install Required Packages
-
-```bash
 pip install -r requirements.txt
-```
-
----
 
 ### 5. Configure Environment Variables
 
 Create a `.env` file in the root directory and add:
-
-```env
 SECRET_KEY=your_secret_key
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/smart_tasks
-```
-
----
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/smart_task
 
 ### 6. Setup PostgreSQL Database
 
@@ -127,27 +87,16 @@ Make sure PostgreSQL is installed and running.
 
 Run the schema file:
 
-```bash
 psql -U postgres -f schema.sql
-```
-
----
 
 ### 7. Run the Application
 
-```bash
 python run.py
-```
-
----
 
 ### 8. Open in Browser
 
-```bash
 http://localhost:5000
-```
 
----
 
 ## Application Features
 
@@ -157,8 +106,6 @@ http://localhost:5000
 * User Login
 * Logout Functionality
 * Password Hashing
-
----
 
 ### Task Management APIs
 
@@ -182,8 +129,6 @@ Each task contains:
 * Status
 * Created Date
 
----
-
 ## Analytics Module
 
 Using Pandas & NumPy:
@@ -194,7 +139,6 @@ Using Pandas & NumPy:
 * Completion Percentage
 * Tasks by Priority
 
----
 
 ## WebSocket Features
 
@@ -204,17 +148,11 @@ Implemented using Flask-SocketIO:
 * Live notifications
 * Instant dashboard refresh
 
----
-
 ## Database Schema
 
 Database schema is available in:
 
-```bash
 schema.sql
-```
-
----
 
 ## Submission Requirements Completed
 
@@ -226,15 +164,8 @@ schema.sql
 ✅ WebSocket Integration
 ✅ Responsive Frontend
 ✅ README Documentation
-
----
-
-## Author
-
-Supriya Marri
-
----
-
+## Demo video link
+https://drive.google.com/file/d/13giau_Xve_nSndVe0vuCUyjZlbw8AmVw/view?usp=drive_link
 ## License
 
 MIT License
